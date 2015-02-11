@@ -5,19 +5,19 @@ class QuestionsController < ApplicationController
   end
 
   def show
-  	@question = Question.find(params[:id])
+    @question = Question.find(params[:id])
     @comments = @question.comments
   end
 
   def new
-  	@question = Question.new
+    @question = Question.new
   end
 
   def edit
-  	@question = Question.find(params[:id])
+    @question = Question.find(params[:id])
   end
 
- def update
+  def update
     @question = Question.find(params[:id])
 
     if @question.update(question_params)
@@ -31,7 +31,7 @@ class QuestionsController < ApplicationController
   def create
     # Using current_user and #create/#build to add a question
     # to the current user's array of questions
-  	@question = current_user.questions.create(question_params)
+    @question = current_user.questions.create(question_params)
     redirect_to question_path(@question)
   end
 
@@ -56,7 +56,7 @@ class QuestionsController < ApplicationController
   private
 
   def question_params
-  	params.require(:question).permit(:title, :body)
+    params.require(:question).permit(:title, :body)
   end
 end
 
