@@ -1,11 +1,6 @@
 require 'spec_helper'
 
-describe AnswersController  do
-
-  it "#index" do
-    get :index
-    expect(assigns(:answers)).to eq Answer.all
-  end
+describe AnswersController do
 
   it "#new" do
     get :new
