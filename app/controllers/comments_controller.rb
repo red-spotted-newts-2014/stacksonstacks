@@ -15,6 +15,7 @@ class CommentsController < ApplicationController
   def create
     @commentable = find_commentable
     @comment = @commentable.comments.build(comment_params)
+
     if @comment.save
       flash[:notice] = "Successfully created comment."
       redirect_to root_path
@@ -30,7 +31,7 @@ class CommentsController < ApplicationController
   def destroy
     @comment = Comment.find(params[:id])
     @comment.destroy
-    redirect_to comments_path 
+    redirect_to comments_path
   end
 
   private
